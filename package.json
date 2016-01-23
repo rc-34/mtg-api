@@ -2,7 +2,7 @@
   "name": "mtg-api",
   "version": "0.1.0",
   "description": "API to access meteo data",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/rc-34/mtg-api/issues"
   },
-  "homepage": "https://github.com/rc-34/mtg-api#readme"
+  "homepage": "https://github.com/rc-34/mtg-api#readme",
+  "dependencies": {
+    "chai": "^3.4.1",
+    "express": "^4.13.4",
+    "mocha": "^2.3.4"
+  }
 }
