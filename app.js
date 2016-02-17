@@ -2,13 +2,12 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+app.set('env', "development");
 
 // view engine setup
-
-// jade
 app.set('views', path.join(__dirname, 'views'));
+// // jade
 // app.set('view engine', 'jade');
-
 //express-handlebars
 var exphbs  = require('express-handlebars');
 
@@ -22,10 +21,14 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
 // Route files import
-var routes = require('./routes/index');
+var routeindex = require('./routes/index');
 
 // Mapping route
-app.use('/', routes);
+app.use('/', routeindex);
+
+// CRON
+var cronArome = require('./cron/cronArome');
+cronArome.start();
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -34,9 +37,7 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-
 // error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
@@ -64,4 +65,6 @@ app.use(function(err, req, res, next) {
 // Set server port
 var port = 4000
 app.listen(port);
-console.log('server is running on port:' + port);
+console.log('[App mode]:'+ app.get('env'));
+console.log('[Server port]:' + port);
+console.log('[Status]:running');
