@@ -141,7 +141,7 @@ reftimejson(targethost, targetJSON, grid, model, codepack, echeance, function (r
 		var url = "https://" + targethost + "/" + querystring;
 		
 		console.log(url);
-		downloaddata(url,"/Users/rchailan/Desktop/OnGoing/Meteogaz/mtg-api/test/tmp-dl/TMP.grib2");
+		downloaddata(url,require('path').resolve(__dirname, 'tmp-dl','TMP.grib2'));
 
 		console.log("That's all folks!");
 	});
